@@ -20,3 +20,4 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+ 
