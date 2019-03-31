@@ -1,0 +1,32 @@
+<div class="container">
+      <h3 id="welcome">WELCOME TO GITHUBSEARCH</h3>
+      <form action="" class="search-form">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search git users with username">
+          </div>
+        </form>
+        <div *ngIf="user">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                {{user.name}} 
+                <span *ngIf="user.company">Works at {{user.company}}</span>,
+                {{user.location}}
+              </div>
+              <div class="panel-body">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <img src="{{user.avatar_url}}" class="img-circle img-responsive" alt="Profile Image">
+                    </div>
+   
+                    <div class="col-sm-6">
+                        <ul class="list-group">
+                          <li class="list-group-item" >UserName:     {{user.name}}</li>
+                          <li class="list-group-item" >Repository:   {{user.repository}}</li>
+                          <li class="list-group-item" >Location:     {{user.location}}</li>
+                          <li class="list-group-item" >Followers:    {{user.followers}}</li>
+                          <li class="list-group-item" >Following:    {{user.following}}</li>
+                          <p><a href="{{user.html_url}}" target="_blank" class="btn btn-success btn-sm" id="view">View profile on github</a></p>
+                        </ul>
+                      </div>
+
+           
