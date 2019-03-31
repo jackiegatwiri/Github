@@ -10,13 +10,14 @@ import {environment} from '../../environments/environment';
 export class ProfilesService {
   user:User;
   repos:Repository;
-  // private username:string;
-  // avatar_url = "./assets/avatar.png"
+  private username:string;
+  
 
   constructor(private http:HttpClient) {
     
     this.user= 
       new User("","","","", 0, "", 0, 0, "");
+      this.username="jackiegatwiri";
    }
    userRequest(){
      interface ApiResponse{ 
@@ -31,7 +32,7 @@ export class ProfilesService {
      html_url;
      }
      let promise =new Promise((resolve,reject)=>{
-      return this.http.get<ApiResponse>("https://api.github.com/users/jackiegatwiri?access_token=" +environment.apiToken).toPromise().then(response=>{
+      return this.http.get<ApiResponse>("https://api.github.com/users/" +this.username+ "?access_token=" +environment.apiToken).toPromise().then(response=>{
          this.user.name=response.login
          this.user.company=response.login
           this.user.login=response.login
@@ -79,6 +80,9 @@ getrepositories(){
 })
 
 return promise
+}
+updateProfile(username:string){
+  this.username=username;
 }
    }
 

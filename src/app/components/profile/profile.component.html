@@ -2,16 +2,18 @@
       <h3 id="welcome">WELCOME TO GITHUBSEARCH</h3>
       <form action="" class="search-form">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search git users with username">
+            <input type="text" class="form-control" placeholder="Search git users with username" [(ngModel)]="username" name="username" (keyup)="locateUserProfile()" >
           </div>
         </form>
         <div *ngIf="user">
             <div class="panel panel-default">
               <div class="panel-heading">
-                {{user.name}} 
-                <span *ngIf="user.company">Works at {{user.company}}</span>,
+               Here is a profile of {{user.name}} 
+                <span *ngIf="user.company">who works at {{user.company}}</span>, situated in
                 {{user.location}}
               </div>
+            </div>
+          </div>
               <div class="panel-body">
                   <div class="row">
                     <div class="col-sm-6">

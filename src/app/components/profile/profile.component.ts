@@ -12,14 +12,19 @@ import {Repository} from 'src/app/class/repository';
 export class ProfileComponent implements OnInit {
   public user:User;
   public repos:Repository;
+  username:string;
 
   constructor(private profilesService:ProfilesService) { }
-
-  ngOnInit() {
+  locateUserProfile(){
+    this.profilesService.updateProfile(this.username);
     this.profilesService.userRequest()
     this.user= this.profilesService.user
     this.profilesService.getrepositories()
     this.repos= this.profilesService.repos
+  }
+
+  ngOnInit() {
+   
   }
 
 }
