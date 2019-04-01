@@ -38,7 +38,7 @@
                   <div class="panel-body">
                     <div class="row">
                       <div class="form-group">
-                        <button type="button" (click)="getRepos()">Get Repos</button>
+                        <button type="button" class="btn btn-info btn-sm" (click)="getRepos()">Get Repos</button>
                        </div>
                        
                        <div *ngIf="loading">loading...</div>
@@ -54,4 +54,6 @@
                           description:{{repo.html_url}}
                         </div>
                        </div>
+                      </div>
+                    </div>
                       
