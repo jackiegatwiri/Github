@@ -27,7 +27,10 @@
                           <li class="list-group-item" >Repository:   {{user.repository}}</li>
                           <li class="list-group-item" >Location:     {{user.location}}</li>
                           <li class="list-group-item" >Followers:    {{user.followers}}</li>
+                          
                           <li class="list-group-item" >Following:    {{user.following}}</li>
+                          <li class="list-group-item" >Created At:   {{user.created_at|date}}</li>
+                          
                           <p><a href="{{user.html_url}}" target="_blank" class="btn btn-success btn-sm" id="view">View profile on github</a></p>
                         </ul>
                       </div>
