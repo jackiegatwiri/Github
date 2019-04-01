@@ -45,12 +45,34 @@
                         <strong>Warning!</strong> {{errorMessage}}
                        </div>
                        <div class="row">
-                        <div class="col-md-4" *ngFor="let repo of repos">
-                            <li class="list-group-item" >RepoName:     {{repo.name}}</li>
-                            <li class="list-group-item" >RepoID:       {{repo.id}}</li>
-                            <li class="list-group-item" >HTML Url:     {{repo.html_url}}</li>
-                            <li class="list-group-item" >Description:  {{repo.html_url}}</li>
-                        </div>
+                          <div class="col-md-4 card" *ngFor="let repo of repos;">
+
+                              <!-- <div class="card"> -->
+                                  <!-- Card content -->
+                                  <div class="card-body ">
+                                    <!-- Title -->
+                                    <h4 class="card-title animated fadeInRight" ><p class="text-info">  {{repo.name}}</p></h4>
+                                    <hr>
+                                    <!-- Text -->
+                                    <ul class=" card-text list-group list-group-flush">
+                                        <li class="list-group-item animated fadeInRight"> <i class="fas fa-fingerprint"></i> Repo ID: {{repo.id}}</li>
+               
+                                        <li class="list-group-item animated fadeInRight"> <i class="fas fa-globe-americas"></i> Repo Name: {{repo.name}}</li>
+               
+                                        <li class="list-group-item animated fadeInRight"> <i class="fas fa-file-signature"></i> Repo Description: {{repo.description}}</li>
+                                      </ul>
+                                  </div>
+               
+                                  <!-- Card footer -->
+                                  <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                                    <ul class="list-unstyled list-inline font-small">
+                                        <a target="_blank" href="{{repo.html_url}}" class="btn btn-grey btn-md">  Checkout on Github
+                                          <i class="fas fa-fighter-jet"></i>
+                                        </a>
+                                    </ul>
+                                  </div>
+                                <!-- </div> -->
+                      </div>
                        </div>
                       </div>
                     </div>
