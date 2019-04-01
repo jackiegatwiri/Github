@@ -12,6 +12,9 @@ export class LandingPageComponent implements OnInit {
 
   public user:User;
   username:string;
+  repos:Repos[];
+  loading:boolean=false;
+  errormessage:any;
 
   constructor(private profilesService:ProfilesService) { }
   locateUserProfile(){
@@ -21,10 +24,19 @@ export class LandingPageComponent implements OnInit {
     
   }
 
+  
+
   ngOnInit() {
     this.profilesService.userRequest()
     this.user= this.profilesService.user
     
   }
+  public getRepos(){
+    this.loading=true;
+    this.errormessage='';
+ 
+    this.profilesService.getRepos(this.username).subscribe((response)=>{this.repos=response;},
+    (error)=>{this.errormessage=error;this.loading=false;},()=>{this.loading=false;})
 
+}
 }
