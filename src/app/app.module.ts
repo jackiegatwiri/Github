@@ -12,6 +12,7 @@ import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpModule } from '@ngx-progressbar/http';
 import { RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { UnderlineDirective } from './underline.directive';
 
 const routes:Routes=[
   {path:"",component:LandingPageComponent},
@@ -24,6 +25,7 @@ const routes:Routes=[
     ProfileComponent,
     LandingPageComponent,
     NavbarComponent,
+    UnderlineDirective,
   ],
   imports: [
     BrowserModule,
