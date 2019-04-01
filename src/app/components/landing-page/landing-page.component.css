@@ -1,0 +1,15 @@
+#view{
+    margin-top: 3em;
+}
+img {
+    border-radius: 50%;
+    height: 20em;
+    margin-top: 2em;
+  }
+  #welcome{
+      text-align: center;
+      color: brown;
+      font-family: monospace;
+      margin-top: 4em;
+      margin-bottom: 4em;
+  }

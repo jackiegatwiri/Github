@@ -3,7 +3,7 @@
       <h3 id="welcome">WELCOME TO GITHUBSEARCH</h3>
       <form action="" class="search-form">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search git users with username" [(ngModel)]="username" name="username" (keyup)="locateUserProfile() + getRepos()">
+            <input type="text" class="form-control" placeholder="Search git users with username" [(ngModel)]="username" name="username" (keyup)="locateUserProfile()">
           </div>
         </form>
         <div *ngIf="user">

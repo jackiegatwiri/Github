@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {User} from '../class/user';
 import {environment} from '../../environments/environment';
-import { RepositoryService } from 'src/app/services/repository.service';
-import { Repository } from '../class/repository'
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +10,12 @@ import { Repository } from '../class/repository'
 export class ProfilesService {
   user:User;
   loading = false;
-  repos: Repository[];
+ 
   
   private username:string;
   
 
-  constructor(private http:HttpClient, private service: RepositoryService ) {
+  constructor(private http:HttpClient, ) {
     
     this.user= 
       new User("","","","", 0, "", 0, 0, "");
@@ -36,7 +35,7 @@ export class ProfilesService {
      }
      
      let promise =new Promise((resolve,reject)=>{
-      return this.http.get<ApiResponse>("https://api.github.com/users/" +this.username+ "?access_token=" ).toPromise().then(response=>{
+      return this.http.get<ApiResponse>("https://api.github.com/users/" +this.username+ "?access_token=" +environment.apiToken).toPromise().then(response=>{
          this.user.name=response.name
          this.user.company=response.company
           this.user.login=response.login
@@ -61,22 +60,7 @@ export class ProfilesService {
 return promise
 
 }
-public getUsers(event: any) {
-  this.loading = true;
-  // tslint:disable-next-line:prefer-const
-  let promise = new Promise((resolve , reject) => {
-   this.service.getRepos(this.username).toPromise().then(response => {
-     this.repos = response; this.loading = false; // this will push all data to array [repo]
-      resolve();
-    },
-    error => {
-      alert('error occured')
-      this.loading = false;
-    }
-  );
-  });
-  return promise;
- }
+
 updateProfile(username:string){
   this.username=username;
 }

@@ -14,7 +14,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 const routes:Routes=[
-  {path:"landing-page",component:LandingPageComponent},
+  {path:"",component:LandingPageComponent},
   {path:"profile",component:ProfileComponent}
 ]
 
