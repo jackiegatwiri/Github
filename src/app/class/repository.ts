@@ -1,3 +1,6 @@
 export class Repository {
-    constructor(public name, public repos_url){}
+   id: string;
+   name: string;
+   html_url:string;
+   description:string;
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfilesService } from 'src/app/services/profiles.service';
 import { User } from 'src/app/class/user';
-import {Repository} from 'src/app/class/repository';
+import { Repository} from 'src/app/class/repository'
+import { RepositoryService } from 'src/app/services/repository.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ import {Repository} from 'src/app/class/repository';
 })
 export class ProfileComponent implements OnInit {
   public user:User;
-  public repos:Repository;
+  repos:Repository[];
   username:string;
 
   constructor(private profilesService:ProfilesService) { }
@@ -19,15 +20,13 @@ export class ProfileComponent implements OnInit {
     this.profilesService.updateProfile(this.username);
     this.profilesService.userRequest()
     this.user= this.profilesService.user
-    this.profilesService.getrepositories()
-    this.repos= this.profilesService.repos
+    
   }
 
   ngOnInit() {
     this.profilesService.userRequest()
     this.user= this.profilesService.user
-    this.profilesService.getrepositories()
-    this.repos= this.profilesService.repos
+    
   }
 
 }
