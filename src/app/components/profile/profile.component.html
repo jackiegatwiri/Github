@@ -38,20 +38,18 @@
                   <div class="panel-body">
                     <div class="row">
                       <div class="form-group">
-                        <button type="button" class="btn btn-info btn-sm" (click)="getRepos()">Get Repos</button>
+                        <button type="button" id="btn1" class="btn btn-info btn-sm" (click)="getRepos()">Get Repositories</button>
                        </div>
-                       
                        <div *ngIf="loading">loading...</div>
-                       
                        <div *ngIf="errorMessage" class="alert alert-warning">
                         <strong>Warning!</strong> {{errorMessage}}
                        </div>
                        <div class="row">
                         <div class="col-md-4" *ngFor="let repo of repos">
-                          Name:{{repo.name}}
-                          ID:{{repo.id}}
-                          HTML Url:{{repo.html_url}}
-                          description:{{repo.html_url}}
+                            <li class="list-group-item" >RepoName:     {{repo.name}}</li>
+                            <li class="list-group-item" >RepoID:       {{repo.id}}</li>
+                            <li class="list-group-item" >HTML Url:     {{repo.html_url}}</li>
+                            <li class="list-group-item" >Description:  {{repo.html_url}}</li>
                         </div>
                        </div>
                       </div>
