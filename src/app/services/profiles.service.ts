@@ -20,10 +20,10 @@ export class ProfilesService {
       this.username="jackiegatwiri";
    }
    userRequest(){
-     interface ApiResponse{ 
-      name:string;
-      company:string;
-      login:string;
+    interface ApiResponse{ 
+    name:string;
+    company:string;
+    login:string;
      avatar_url;
      public_repos:number;
      location:any;
@@ -33,8 +33,8 @@ export class ProfilesService {
      }
      let promise =new Promise((resolve,reject)=>{
       return this.http.get<ApiResponse>("https://api.github.com/users/" +this.username+ "?access_token=" +environment.apiToken).toPromise().then(response=>{
-         this.user.name=response.login
-         this.user.company=response.login
+         this.user.name=response.name
+         this.user.company=response.company
           this.user.login=response.login
           this.user.avatar_url=response.avatar_url
           this.user.repository=response.public_repos
@@ -64,9 +64,8 @@ getrepositories(){
     repos_url;
   }
   let promise =new Promise((resolve,reject)=>{
-   return this.http.get<ApiRepos>("https://api.github.com/users/jackiegatwiri/repos?access_token=" +environment.apiToken).toPromise().then(response=>{
-    this.repos.name=response.name
-    this.repos.repos_url=response.repos_url  
+   return this.http.get<ApiRepos>("https://api.github.com/users/" +this.username+"/repos?access_token=" +environment.apiToken).toPromise().then(response=>{
+    
 
 
        resolve()

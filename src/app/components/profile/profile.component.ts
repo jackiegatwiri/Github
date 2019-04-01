@@ -24,7 +24,10 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-   
+    this.profilesService.userRequest()
+    this.user= this.profilesService.user
+    this.profilesService.getrepositories()
+    this.repos= this.profilesService.repos
   }
 
 }
