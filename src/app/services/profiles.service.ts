@@ -18,7 +18,7 @@ export class ProfilesService {
   constructor(private http:HttpClient, ) {
     
     this.user= 
-      new User("","","","", 0, "", 0, 0, "");
+      new User("","","","", 0, "", 0, 0, "", "");
       this.username="jackiegatwiri";
    }
    userRequest(){
@@ -32,6 +32,7 @@ export class ProfilesService {
      followers: number;
      following: number;
      html_url;
+     created_at;
      }
      
      let promise =new Promise((resolve,reject)=>{
@@ -45,6 +46,7 @@ export class ProfilesService {
           this.user.followers=response.followers
           this.user.following=response.following
           this.user.html_url=response.html_url
+          this.user.created_at=response.created_at
 
 
           resolve()
