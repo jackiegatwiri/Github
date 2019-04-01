@@ -2,16 +2,16 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {User} from '../class/user';
 import {environment} from '../../environments/environment';
-
+import { Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
+import {Repos} from '../class/repos';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfilesService {
   user:User;
-  loading = false;
- 
-  
+  repos:Repos;
   private username:string;
   
 
@@ -63,6 +63,11 @@ return promise
 
 updateProfile(username:string){
   this.username=username;
+}
+
+baseUrl:string = "https://api.github.com/";
+getRepos(username: string):Observable<Repos[]>{
+return this.http.get<Repos[]>(this.baseUrl + 'users/' + this.username + '/repos?access_token='+ environment.apiToken)
 }
    }
 

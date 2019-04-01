@@ -31,9 +31,26 @@
                           <p><a href="{{user.html_url}}" target="_blank" class="btn btn-success btn-sm" id="view">View profile on github</a></p>
                         </ul>
                       </div>
+                    </div>
+                  </div>
 
            
 
-<div *ngFor="let repo of repos">
-{{repo.description}}
-</div>
+                      <div class="form-group">
+                        <button type="button" (click)="getRepos()">Get Repos</button>
+                       </div>
+                       
+                       <div *ngIf="loading">loading...</div>
+                       
+                       <div *ngIf="errorMessage" class="alert alert-warning">
+                        <strong>Warning!</strong> {{errorMessage}}
+                       </div>
+                       <div class="row">
+                        <div class="col-md-4" *ngFor="let repo of repos">
+                          Name:{{repo.name}}
+                          ID:{{repo.id}}
+                          HTML Url:{{repo.html_url}}
+                          description:{{repo.html_url}}
+                        </div>
+                       </div>
+                      
