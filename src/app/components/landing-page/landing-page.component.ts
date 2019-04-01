@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfilesService } from 'src/app/services/profiles.service';
 import { User } from 'src/app/class/user';
+import {Repos} from 'src/app/class/repos';
 
 @Component({
   selector: 'app-landing-page',
